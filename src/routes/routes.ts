@@ -9,9 +9,18 @@ export interface IRoutes {
   component: LazyExoticComponent<JSXComponent> | JSXComponent;
 }
 
-const Lazy01 = lazy(() => import("../01-lazyload/pages/LazyPage1"));
-const Lazy02 = lazy(() => import("../01-lazyload/pages/LazyPage2"));
-const Lazy03 = lazy(() => import("../01-lazyload/pages/LazyPage3"));
+const Lazy01 = lazy(
+  () =>
+    import(/* webpackChunkName: "LazyPage1" */ "../01-lazyload/pages/LazyPage1")
+);
+const Lazy02 = lazy(
+  () =>
+    import(/* webpackChunkName: "LazyPage2" */ "../01-lazyload/pages/LazyPage2")
+);
+const Lazy03 = lazy(
+  () =>
+    import(/* webpackChunkName: "LazyPage3" */ "../01-lazyload/pages/LazyPage3")
+);
 
 export const routes: IRoutes[] = [
   {
