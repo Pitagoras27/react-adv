@@ -9,8 +9,6 @@ import {
 import { routes } from './routes';
 import logo from '../logo.svg';
 
-console.log(routes,'<')
-
 export const Navigation = () => {
   return (
     <Suspense fallback="...loading"> 
