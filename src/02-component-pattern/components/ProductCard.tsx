@@ -1,3 +1,4 @@
+import { ReactElement } from 'react';
 import { useProduct } from '../hooks/useProduct';
 import styles from '../styles/styles.module.css';
 import { ProductButtons } from './ProductButtons';
@@ -6,6 +7,7 @@ import { ProductTitle } from './ProductTitile';
 
 interface Props {
     product: Product,
+    children?: ReactElement | ReactElement[]
 }
 
 interface Product {
@@ -14,7 +16,7 @@ interface Product {
     img?: string;
 }
 
-export const ProductCard = ({ product }: Props) => {
+export const ProductCard = ({ product, children }: Props) => {
 
     const { count, handleCount } = useProduct(0);
 
@@ -22,9 +24,7 @@ export const ProductCard = ({ product }: Props) => {
         <>
         
             <div className={styles.productCard}>
-                <ProductImage img={product.img}/>
-                <ProductTitle title={ product.title }/>            
-                <ProductButtons count={count} handleCount={handleCount} />
+                { children }
             </div>
         </>
     )
