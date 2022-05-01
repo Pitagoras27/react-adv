@@ -29,3 +29,7 @@ export const ProductCard = ({ product, children }: Props) => {
         </>
     )
 }
+
+ProductCard.Buttons = ProductButtons;
+ProductCard.Image = ProductImage;
+ProductCard.Title = ProductTitle;
