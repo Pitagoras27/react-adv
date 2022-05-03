@@ -18,10 +18,8 @@ export const ProductPage = () => {
       }}>
         <ProductCard product={product}>
           <ProductCard.Image />
-          <ProductCard.Title title=''/>
-          <ProductCard.Buttons count={0} handleCount={function (val: number): void {
-            throw new Error('Function not implemented.');
-          } } />
+          <ProductCard.Title />
+          <ProductCard.Buttons />
         </ProductCard>
       </div>
     </>

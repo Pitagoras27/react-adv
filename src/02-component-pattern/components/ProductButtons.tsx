@@ -1,11 +1,10 @@
+import { useContext } from 'react';
 import styles from '../styles/styles.module.css'
+import { createProductContext } from './ProductCard';
 
-interface Props {
-  count: number;
-  handleCount: (val: number) => void
-}
+export const ProductButtons = () => {
+  const { count, handleCount } = useContext(createProductContext);
 
-export const ProductButtons = ({ count, handleCount } : Props) => {
   return (
     <div className={styles.buttonsContainer}>
         <button className={styles.buttonMinus} onClick={() => handleCount(-1)}> -1 </button>
