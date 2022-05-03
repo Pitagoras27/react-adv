@@ -1,4 +1,6 @@
-import { ProductCard } from '../components';
+import { ProductButtons, ProductImage, ProductTitle } from '../components';
+import { ProductCard } from '../components/ProductCard';
+import '../styles/custom-styles.css';
 
 const product = {
   id: '1',
@@ -16,10 +18,16 @@ export const ProductPage = () => {
         flexDirection: 'row',
         flexWrap: 'wrap'
       }}>
-        <ProductCard product={product}>
-          <ProductCard.Image />
+        {/** TODO: Add interfaces */}
+        {/* <ProductCard product={product} className="bg-dark">
+          <ProductCard.Image className="text-white" />
           <ProductCard.Title />
           <ProductCard.Buttons />
+        </ProductCard> */}
+        <ProductCard product={product} className="bg-dark text-white">
+          <ProductImage className="custom-image" />
+          <ProductTitle className="text-bold" />
+          <ProductButtons className="custom-buttoms" />
         </ProductCard>
       </div>
     </>

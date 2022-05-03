@@ -1,9 +1,4 @@
-import { ReactElement } from "react";
-
-export interface Props {
-  product: Product;
-  children?: ReactElement | ReactElement[];
-}
+import { Props as ProductProps } from "../components/ProductCard";
 
 export interface Product {
   id: string;
@@ -17,9 +12,9 @@ export interface ContextProps {
   handleCount: (val: number) => void;
 }
 
-export interface IProductCardHOC {
-  ({ product, children }: Props): JSX.Element;
-  Title: ({ title }: { title?: string }) => JSX.Element;
-  Image: ({ img }: { img?: string }) => JSX.Element;
-  Buttons: () => JSX.Element;
-}
+// export interface IProductCardHOC {
+//   ({ product, children }: ProductProps): JSX.Element;
+//   Title: ({ title }: { title?: string }) => JSX.Element;
+//   Image: ({ img }: { img?: string }) => JSX.Element;
+//   Buttons: ({ className }: { className?: string }) => JSX.Element;
+// }
