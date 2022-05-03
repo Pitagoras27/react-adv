@@ -1,4 +1,15 @@
+import { IProductCardHOC } from "../interfaces/interfaces";
+import { ProductButtons } from "./ProductButtons";
+import { ProductCard as ProductCardHOC } from "./ProductCard";
+import { ProductImage } from "./ProductImage";
+import { ProductTitle } from "./ProductTitle";
+
 export { ProductButtons } from "./ProductButtons";
-export { ProductCard } from "./ProductCard";
 export { ProductImage } from "./ProductImage";
-export { ProductTitle } from "./ProductTitile";
+export { ProductTitle } from "./ProductTitle";
+
+export const ProductCard: IProductCardHOC = Object.assign(ProductCardHOC, {
+  Title: ProductTitle,
+  Image: ProductImage,
+  Buttons: ProductButtons,
+});

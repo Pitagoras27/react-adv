@@ -16,3 +16,10 @@ export interface ContextProps {
   count: number;
   handleCount: (val: number) => void;
 }
+
+export interface IProductCardHOC {
+  ({ product, children }: Props): JSX.Element;
+  Title: ({ title }: { title?: string }) => JSX.Element;
+  Image: ({ img }: { img?: string }) => JSX.Element;
+  Buttons: () => JSX.Element;
+}
