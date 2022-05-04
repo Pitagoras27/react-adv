@@ -8,14 +8,15 @@ export interface Props {
     children?: ReactElement | ReactElement[];
     className?: string;
     style?: CSSProperties;
+    onChange?: () => void;
 }
 
 export const createProductContext = createContext({} as ContextProps);
 const { Provider } = createProductContext 
 
-export const ProductCard = ({ product, children, className, style }: Props) => {
+export const ProductCard = ({ product, children, className, style, onChange }: Props) => {
 
-    const { count, handleCount } = useProduct(0);
+    const { count, handleCount } = useProduct(onChange);
 
     return (
         <Provider value={{

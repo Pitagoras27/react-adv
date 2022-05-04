@@ -1,10 +1,12 @@
 import { useState } from "react"
 
-export const useProduct = (initialState: number) => {
-    
-    const [count, setCount] = useState(initialState)
+export const useProduct = (onChange?: () => void) => {
+    const [count, setCount] = useState(0)
 
-    const handleCount = (val: number) => setCount(prev =>  Math.max(prev + val, 0))
+    const handleCount = (val: number) => {
+        setCount(prev =>  Math.max(prev + val, 0))
+        onChange && onChange();
+    }
 
     return {
         count,
