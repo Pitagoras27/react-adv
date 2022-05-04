@@ -1,5 +1,4 @@
-import { ProductButtons, ProductImage, ProductTitle } from '../components';
-import { ProductCard } from '../components/ProductCard';
+import { ProductButtons, ProductImage, ProductTitle, ProductCard } from '../components';
 import '../styles/custom-styles.css';
 
 const product = {
@@ -18,12 +17,13 @@ export const ProductPage = () => {
         flexDirection: 'row',
         flexWrap: 'wrap'
       }}>
-        {/** TODO: Add interfaces */}
-        {/* <ProductCard product={product} className="bg-dark">
-          <ProductCard.Image className="text-white" />
-          <ProductCard.Title />
-          <ProductCard.Buttons />
-        </ProductCard> */}
+
+        <ProductCard product={product} className="bg-dark text-white">
+          <ProductCard.Image className="custom-image" />
+          <ProductCard.Title className="text-bold" />
+          <ProductCard.Buttons className="custom-buttoms"/>
+        </ProductCard>
+
         <ProductCard product={product} className="bg-dark text-white">
           <ProductImage className="custom-image" />
           <ProductTitle className="text-bold" />
