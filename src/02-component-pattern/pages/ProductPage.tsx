@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { ProductButtons, ProductImage, ProductTitle, ProductCard } from '../components';
-import { Product } from '../interfaces/interfaces';
+import { IOnChangeArgs, Product } from '../interfaces/interfaces';
 import '../styles/custom-styles.css';
 
 const product = {
@@ -27,8 +27,8 @@ export const ProductPage = () => {
     '2': { ...product2, count: 2}
   });
 
-  const handleChangeProduct = () => {
-    console.log('Invoque this function every change state!');
+  const handleChangeProduct = ({count,  product}: IOnChangeArgs) => {
+    console.log('product ->', product, 'count->', count);
   }
 
   return (
@@ -64,6 +64,8 @@ export const ProductPage = () => {
             style={{
               width: '100px'
             }}
+            onChange={handleChangeProduct}
+
           >
             <ProductImage className="custom-image" style={{ boxShadow: '10px 10px 10px rgba(0,0,0,0.2)' }} />
             <ProductButtons className="custom-buttons" />
