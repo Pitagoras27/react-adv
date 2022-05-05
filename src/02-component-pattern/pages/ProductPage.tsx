@@ -28,7 +28,17 @@ export const ProductPage = () => {
   });
 
   const handleChangeProduct = ({count,  product}: IOnChangeArgs) => {
-    console.log('product ->', product, 'count->', count);
+    setShoppingCard(oldProductCard => {
+      if (count === 0) {
+        const {[product.id]: toDelete, ...rest} = oldProductCard;
+        return rest
+      }
+
+      return {
+        ...oldProductCard,
+        [product.id]: {...product, count}
+      }
+    })
   }
 
   return (
@@ -71,6 +81,7 @@ export const ProductPage = () => {
             <ProductButtons className="custom-buttons" />
           </ProductCard>
         </div>
+        { JSON.stringify(shoppingCard, null, 4) }
       </div>
     </>
   )
