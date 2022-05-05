@@ -68,20 +68,21 @@ export const ProductPage = () => {
         }
 
         <div className='shopping-card'>
-          <ProductCard 
-            product={ product }
-            className="bg-dark text-white"
-            style={{
-              width: '100px'
-            }}
-            onChange={handleChangeProduct}
-
-          >
-            <ProductImage className="custom-image" style={{ boxShadow: '10px 10px 10px rgba(0,0,0,0.2)' }} />
-            <ProductButtons className="custom-buttons" />
-          </ProductCard>
+          { Object.entries( shoppingCard ).map(([key, product]) => (
+            <ProductCard
+              key={key}
+              product={ product }
+              className="bg-dark text-white"
+              style={{
+                width: '100px'
+              }}
+              onChange={handleChangeProduct}
+            >
+              <ProductImage className="custom-image" style={{ boxShadow: '10px 10px 10px rgba(0,0,0,0.2)' }} />
+              <ProductButtons className="custom-buttons" />
+            </ProductCard>
+          )) }
         </div>
-        { JSON.stringify(shoppingCard, null, 4) }
       </div>
     </>
   )
