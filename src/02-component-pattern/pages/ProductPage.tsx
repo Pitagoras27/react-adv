@@ -1,3 +1,4 @@
+import { count } from 'console';
 import { useState } from 'react';
 import { ProductButtons, ProductImage, ProductTitle, ProductCard } from '../components';
 import { IOnChangeArgs, Product } from '../interfaces/interfaces';
@@ -23,8 +24,8 @@ interface IShoppingCard extends Product {
 
 export const ProductPage = () => {
   const [ shoppingCard, setShoppingCard ] = useState<{ [key: string]: IShoppingCard }>({
-    '1': { ...product, count: 10},
-    '2': { ...product2, count: 2}
+    '1': { ...product, count: 0},
+    '2': { ...product2, count: 0}
   });
 
   const handleChangeProduct = ({count,  product}: IOnChangeArgs) => {
@@ -77,6 +78,7 @@ export const ProductPage = () => {
                 width: '100px'
               }}
               onChange={handleChangeProduct}
+              value={product.count}
             >
               <ProductImage className="custom-image" style={{ boxShadow: '10px 10px 10px rgba(0,0,0,0.2)' }} />
               <ProductButtons className="custom-buttons" />

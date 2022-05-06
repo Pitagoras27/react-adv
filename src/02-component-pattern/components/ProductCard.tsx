@@ -9,14 +9,15 @@ export interface Props {
     className?: string;
     style?: CSSProperties;
     onChange?: ( args: IOnChangeArgs ) => void;
+    value?: number;
 }
 
 export const createProductContext = createContext({} as ContextProps);
 const { Provider } = createProductContext 
 
-export const ProductCard = ({ product, children, className, style, onChange }: Props) => {
+export const ProductCard = ({ product, children, className, style, onChange, value }: Props) => {
 
-    const { count, handleCount } = useProduct({onChange, product});
+    const { count, handleCount } = useProduct({onChange, product, value});
 
     return (
         <Provider value={{
