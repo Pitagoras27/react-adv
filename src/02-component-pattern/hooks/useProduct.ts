@@ -1,8 +1,8 @@
-import { useState } from "react"
+import { useState } from "react";
 import { IOnChangeArgs, Product } from "../interfaces/interfaces";
 
 interface IUseProductArgs {
-    onChange: ( args: IOnChangeArgs) => void;
+    onChange?: ( args: IOnChangeArgs) => void;
     product: Product;
 }
 

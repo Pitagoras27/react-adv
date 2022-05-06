@@ -8,7 +8,7 @@ export interface Props {
     children?: ReactElement | ReactElement[];
     className?: string;
     style?: CSSProperties;
-    onChange: ( args: IOnChangeArgs ) => void;
+    onChange?: ( args: IOnChangeArgs ) => void;
 }
 
 export const createProductContext = createContext({} as ContextProps);
