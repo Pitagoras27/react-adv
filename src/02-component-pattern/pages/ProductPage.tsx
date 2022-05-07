@@ -1,7 +1,6 @@
-import { count } from 'console';
 import { useState } from 'react';
 import { ProductButtons, ProductImage, ProductTitle, ProductCard } from '../components';
-import { IOnChangeArgs, Product } from '../interfaces/interfaces';
+import { IOnChangeArgs, Product, ProductInCart } from '../interfaces/interfaces';
 import '../styles/custom-styles.css';
 
 const product = {
@@ -28,17 +27,31 @@ export const ProductPage = () => {
     '2': { ...product2, count: 0}
   });
 
-  const handleChangeProduct = ({count,  product}: IOnChangeArgs) => {
-    setShoppingCard(oldProductCard => {
-      if (count === 0) {
-        const {[product.id]: toDelete, ...rest} = oldProductCard;
-        return rest
+  const handleChangeProduct = ({ count, product }: { count:number, product: Product }) => {
+    setShoppingCard(oldShoppingCart => {
+      
+      const productInCart: ProductInCart = oldShoppingCart[product.id] || { ...product, count: 0 };
+
+      if( Math.max( productInCart.count + count, 0 ) > 0 ) {
+        productInCart.count += count;
+          return {
+            ...oldShoppingCart,
+            [product.id]: productInCart
+          }
       }
 
-      return {
-        ...oldProductCard,
-        [product.id]: {...product, count}
-      }
+      const {[product.id]: toDelete, ...rest} = oldShoppingCart;
+      return rest;
+      
+      // if (count === 0) {
+      //   const {[product.id]: toDelete, ...rest} = oldShoppingCart;
+      //   return rest
+      // }
+
+      // return {
+      //   ...oldProductCard,
+      //   [product.id]: {...product, count}
+      // }
     })
   }
 

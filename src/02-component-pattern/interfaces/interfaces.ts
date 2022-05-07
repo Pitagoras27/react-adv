@@ -26,3 +26,7 @@ export interface IOnChangeArgs {
   count: number;
   product: Product;
 }
+
+export interface ProductInCart extends Product {
+  count: number
+}
