@@ -18,7 +18,6 @@ export const useProduct = ({ onChange, product, value = 0 }: IUseProductArgs) =>
     const handleCount = (val: number) => {
         
         if(IS_CONTROLLED) {
-            console.log('val--->', val);
             onChange!({ count: val, product });
             return;
         }
