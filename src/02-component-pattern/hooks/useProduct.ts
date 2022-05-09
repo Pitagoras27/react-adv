@@ -21,10 +21,12 @@ export const useProduct = ({ onChange, product, value = 0, initialValues }: IUse
     }, [value]);
 
     const handleCount = (val: number) => {
-        const NEW_COUNT = Math.max(count + val, 0);
-
-        setCount(NEW_COUNT)
-        onChange && onChange({ count: NEW_COUNT, product });
+        let newCount = Math.max(count + val, 0);
+        if(initialValues?.maxCount) {
+            newCount = Math.min(initialValues.maxCount, newCount );
+        }
+        setCount(newCount)
+        onChange && onChange({ count: newCount, product });
     }
 
     return {
