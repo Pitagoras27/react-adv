@@ -20,6 +20,8 @@ export const useProduct = ({ onChange, product, value = 0, initialValues }: IUse
         setCount(value)
     }, [value]);
 
+    const maxCount = initialValues?.maxCount;
+
     const handleCount = (val: number) => {
         let newCount = Math.max(count + val, 0);
         if(initialValues?.maxCount) {
@@ -31,6 +33,8 @@ export const useProduct = ({ onChange, product, value = 0, initialValues }: IUse
 
     return {
         count,
+        maxCount,
+        isMaxCountReached: !!initialValues?.maxCount && initialValues?.maxCount === count,
         handleCount
     }
 }
