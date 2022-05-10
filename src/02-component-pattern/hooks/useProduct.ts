@@ -31,10 +31,15 @@ export const useProduct = ({ onChange, product, value = 0, initialValues }: IUse
         onChange && onChange({ count: newCount, product });
     }
 
+    const reset = () => {
+        setCount(initialValues?.count || value);
+    }
+    
     return {
         count,
         maxCount,
         isMaxCountReached: !!initialValues?.maxCount && initialValues?.maxCount === count,
-        handleCount
+        handleCount,
+        reset
     }
 }
