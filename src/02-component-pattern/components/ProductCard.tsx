@@ -40,7 +40,6 @@ export const ProductCard = ({
         handleCount,
         reset
     } = useProduct({onChange, product, value, initialValues});
-
     return (
         <Provider value={{
             product,

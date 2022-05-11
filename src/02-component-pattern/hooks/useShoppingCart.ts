@@ -9,7 +9,6 @@ export const useShoppingCart = () => {
     const [ shoppingCard, setShoppingCard ] = useState<{ [key: string]: IShoppingCard }>({});
 
     const onProductChange = ({ count, product }: { count:number, product: Product })  => {
-        console.log(count, '<...')
         setShoppingCard(oldShoppingCart => {
             if (count === 0) {
               const {[product.id]: toDelete, ...rest} = oldShoppingCart;
