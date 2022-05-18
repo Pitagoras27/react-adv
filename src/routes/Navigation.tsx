@@ -5,6 +5,10 @@ import {
   NavLink
 } from 'react-router-dom';
 
+import { FormBasicFormik } from '../forms/pages/FormBasicFormik';
+import { FormFormikYup } from '../forms/pages/FormFormikYup';
+import { RegisterPage } from '../forms/pages/RegisterPage';
+
 import logo from '../logo.svg';
 
 export const Navigation = () => {
@@ -15,13 +19,16 @@ export const Navigation = () => {
             <img src={ logo } alt="React Logo" />
           <ul>
             <li>
-              <NavLink to="/" activeClassName="nav-active" exact>Home</NavLink>
+              <NavLink to="/home" activeClassName="nav-active" exact>Home</NavLink>
             </li>
             <li>
-              <NavLink to="/about" activeClassName="nav-active" exact>About</NavLink>
+              <NavLink to="/basic-form" activeClassName="nav-active" exact>Basic Form</NavLink>
             </li>
             <li>
-              <NavLink to="/users" activeClassName="nav-active" exact>Users</NavLink>
+              <NavLink to="/basic-formik" activeClassName="nav-active" exact>Form Basic Formik</NavLink>
+            </li>
+            <li>
+              <NavLink to="/formik-yup" activeClassName="nav-active" exact>Formik Yup</NavLink>
             </li>
           </ul>
         </nav>
@@ -29,14 +36,17 @@ export const Navigation = () => {
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
-          <Route path="/about">
-            <h1>About</h1>
-          </Route>
-          <Route path="/users">
-            <h1>Users</h1>
-          </Route>
-          <Route path="/">
+          <Route path="/home">
             <h1>Home</h1>
+          </Route>
+          <Route path="/basic-form">
+            <RegisterPage />
+          </Route>
+          <Route path="/basic-formik">
+            <FormBasicFormik />
+          </Route>
+          <Route path="/formik-yup">
+            <FormFormikYup />
           </Route>
         </Switch>
       </div>
