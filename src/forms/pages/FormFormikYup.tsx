@@ -21,7 +21,7 @@ const validationSchema = yup.object({
 })
 
 export const FormFormikYup = () => {
-    const {values, handleSubmit, handleChange, errors, handleBlur, touched} = useFormik({
+    const {handleSubmit, errors, touched, getFieldProps} = useFormik({
         initialValues: {
             firstName: '',
             lastName: '',
@@ -40,29 +40,22 @@ export const FormFormikYup = () => {
                 <label htmlFor='firstName'>First Name</label>
                 <input
                     type="text"
-                    name="firstName"
-                    value={values.firstName}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
+                    id='firstName'
+                    {...getFieldProps('firstName')}
                 />
                 { touched.firstName && errors.firstName && <span>{errors.firstName}</span> }
                 <label htmlFor='secondName'>LastName</label>
                 <input
                     type="text"
-                    name="lastName"
                     id="secondName"
-                    value={values.lastName}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
+                    {...getFieldProps('lastName')}
                 />
                 {touched.lastName && errors.lastName  && <span>{errors.lastName}</span>}
                 <label htmlFor='email'>Email</label>
                 <input
                     type="email"
-                    name="email"
-                    value={values.email}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
+                    id='email'
+                    {...getFieldProps('email')}
                 />
                 {touched.email && errors.email && <span>{errors.email}</span>}
                 <button type='submit'>Send data</button>
