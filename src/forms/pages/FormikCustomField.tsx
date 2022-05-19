@@ -1,8 +1,6 @@
 import * as yup from 'yup';
 import { Formik, Form } from 'formik';
-import { CustomFieldText } from '../components/CustomFieldText';
-import { CustomSelect } from '../components/CustomSelect';
-import { CustomCheckbox } from '../components/CustomCheckbox';
+import { CustomFieldText, CustomSelect, CustomCheckbox } from '../components/';
 
 import '../styles/styles.css';
 

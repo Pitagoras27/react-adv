@@ -4,14 +4,9 @@ import {
   Route,
   NavLink
 } from 'react-router-dom';
-
-import { FormBasicFormik } from '../forms/pages/FormBasicFormik';
-import { FormFormikYup } from '../forms/pages/FormFormikYup';
-import { RegisterPage } from '../forms/pages/RegisterPage';
-import { FormikComponents } from '../forms/pages/FormikComponents';
+import { FormBasicFormik, FormFormikYup, RegisterPage, FormikComponents, FormikCustomField } from '../forms/pages/';
 
 import logo from '../logo.svg';
-import { FormikCustomField } from '../forms/pages/FormikCustomField';
 
 export const Navigation = () => {
   return (
