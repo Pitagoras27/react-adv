@@ -11,6 +11,7 @@ import { RegisterPage } from '../forms/pages/RegisterPage';
 import { FormikComponents } from '../forms/pages/FormikComponents';
 
 import logo from '../logo.svg';
+import { FormikCustomField } from '../forms/pages/FormikCustomField';
 
 export const Navigation = () => {
   return (
@@ -34,6 +35,9 @@ export const Navigation = () => {
             <li>
               <NavLink to="/formik-components" activeClassName="nav-active" exact>Formik Components</NavLink>
             </li>
+            <li>
+              <NavLink to="/formik-custom-field" activeClassName="nav-active" exact>Formik Custom Field</NavLink>
+            </li>
           </ul>
         </nav>
 
@@ -54,6 +58,9 @@ export const Navigation = () => {
           </Route>
           <Route path="/formik-yup">
             <FormFormikYup />
+          </Route>
+          <Route path="/formik-custom-field">
+            <FormikCustomField />
           </Route>
         </Switch>
       </div>
